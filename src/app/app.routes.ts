@@ -18,8 +18,8 @@ export const routes: Routes = [
       },
       {
         path: '**',
-        redirectTo: 'trending'
-      }
+        redirectTo: 'trending',
+      },
     ],
   },
   {
