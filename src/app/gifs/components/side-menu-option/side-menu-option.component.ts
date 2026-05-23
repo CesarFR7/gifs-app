@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 interface MenuOption {
   icon: string;
@@ -9,7 +10,7 @@ interface MenuOption {
 
 @Component({
   selector: 'gifs-side-menu-option',
-  imports: [],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './side-menu-option.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -22,7 +23,7 @@ export class SideMenuOptionComponent {
       route: '/dashboard/trending',
     },
     {
-      icon: 'fa-solid fa-nagnifing-line',
+      icon: 'fa-solid fa-magnifying-glass',
       label: 'search',
       sublabel: 'Buscar gifs',
       route: '/dashboard/search',
