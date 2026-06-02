@@ -10,9 +10,11 @@ export class GifService {
   private http = inject(HttpClient);
 
   trendingGifs = signal<Gif[]>([]);
+  trendigGifsLoading = signal(false);
 
   constructor() {
     this.loadTrendingGifs();
+    console.log('Servicio creado');
   }
 
   loadTrendingGifs() {
