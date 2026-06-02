@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { environment } from '@environments/environment';
 import { GiphyResponse } from '../interfaces/giphy.interfaces';
 
@@ -7,16 +7,20 @@ import { GiphyResponse } from '../interfaces/giphy.interfaces';
 export class GifService {
   private http = inject(HttpClient);
 
-  constructor(){
-    this.loadTrendingGifs()
+  constructor() {
+    this.loadTrendingGifs();
   }
 
   loadTrendingGifs() {
-    this.http.get<GiphyResponse>(`${environment.giphUlr}/gifs/trending`, {
-      params: {
-        api_key: environment.giphyApikey,
-        limit: 20,
-      },
-    });
+    this.http
+      .get<GiphyResponse>(`${environment.giphUlr}/gifs/trending`, {
+        params: {
+          api_key: environment.giphyApikey,
+          limit: 20,
+        },
+      })
+      .subscribe((resp) => {
+        console.log(resp);
+      });
   }
 }
