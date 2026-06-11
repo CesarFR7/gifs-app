@@ -55,7 +55,7 @@ export class GifService {
         this.trendingGifs.update((currentGifs) => [...currentGifs, ...gifs]);
         this.trendingGifsLoading.set(false);
         this.trendingPage.update((value) => value + 1);
-              });
+      });
   }
 
   searchGifs(query: string): Observable<Gif[]> {
